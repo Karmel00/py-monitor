@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+import time
 
 
 urls = [
@@ -22,6 +23,15 @@ def web_status():
         log_status = f"czas: {datetime.now()}, adress: {url}, status: {status}\n"
         with open("web_log_status.txt", "a") as log_file:
             log_file.write(log_status)
-        print(log_status.strip())
 
-web_status()
+
+def main():
+    while True:
+        web_status()
+        print("następny check status za 30min")
+        time.sleep(1800)
+
+
+if __name__ == "__main__":
+    main()
+        
