@@ -11,7 +11,7 @@ urls = [
 
 
 def web_status():
-#sprawdzanie połączenia z stoną
+    # sprawdzanie połączenia z stoną
     for url in urls:
         try:
             response = requests.get(url)
@@ -19,8 +19,13 @@ def web_status():
         except Exception as a:
             status = f"bład {a}"
 
-# zpais stausu stron do pliku web_log_status.txt
-        log_status = f"czas: {datetime.now()}, adress: {url}, status: {status}\n"
+        # zpais stausu stron do pliku web_log_status.txt
+        log_status = (
+             f"czas: {datetime.now()}, "
+             f"adress: {url}, "
+             f"status: {status}\n"
+        )
+
         with open("web_log_status.txt", "a") as log_file:
             log_file.write(log_status)
 
@@ -34,4 +39,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-        
