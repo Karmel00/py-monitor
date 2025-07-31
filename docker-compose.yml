@@ -1,0 +1,7 @@
+services:
+  monitor_app:
+    build: .
+    container_name: py-monitor-app
+    volumes:
+      - ./app:/app
+    command: python monitor.py
