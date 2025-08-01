@@ -30,6 +30,7 @@ def web_status():
         # zpais statusu stron do pliku web_log_status.log
         logging.info(f"Adres: {url} - Status: {status}")
 
+
 def main():
     while True:
         web_status()
