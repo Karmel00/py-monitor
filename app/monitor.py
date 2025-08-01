@@ -1,6 +1,16 @@
 import requests
 from datetime import datetime
 import time
+import logging
+
+
+logging.basicConfig(
+    filename="web_log_status.log)",
+    level=logging.INFO,
+    filemode="a",
+    format="%(asctime)s - %(levelname)s - %(message)s"
+    )
+
 
 
 urls = [
@@ -19,22 +29,20 @@ def web_status():
         except Exception as a:
             status = f"bład {a}"
 
-        # zpais stausu stron do pliku web_log_status.txt
+        # zpais statusu stron do pliku web_log_status.log
         log_status = (
              f"czas: {datetime.now()}, "
              f"adress: {url}, "
              f"status: {status}\n"
         )
 
-        with open("web_log_status.txt", "a") as log_file:
-            log_file.write(log_status)
-
+        logging.info(f"Adres: {url} - Status: {status}")
 
 def main():
     while True:
         web_status()
         print("następny check status za 30min")
-        time.sleep(1800)
+        time.sleep(120)
 
 
 if __name__ == "__main__":
