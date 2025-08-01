@@ -22,6 +22,3 @@ jobs:
 
       - name: make docker image
         run: docker build -t py-monitor .
-
-      - name: run monitor.py in docker
-        run: docker run py-monitor

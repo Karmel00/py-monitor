@@ -1,5 +1,4 @@
 import requests
-from datetime import datetime
 import time
 import logging
 
@@ -10,7 +9,6 @@ logging.basicConfig(
     filemode="a",
     format="%(asctime)s - %(levelname)s - %(message)s"
     )
-
 
 
 urls = [
@@ -30,18 +28,12 @@ def web_status():
             status = f"bład {a}"
 
         # zpais statusu stron do pliku web_log_status.log
-        log_status = (
-             f"czas: {datetime.now()}, "
-             f"adress: {url}, "
-             f"status: {status}\n"
-        )
-
         logging.info(f"Adres: {url} - Status: {status}")
 
 def main():
     while True:
         web_status()
-        print("następny check status za 30min")
+        print("następny check status za 2min")
         time.sleep(120)
 
 
