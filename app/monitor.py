@@ -26,7 +26,8 @@ logging.basicConfig(
     )
 
 
-# "http://www.google.com/404" is not working web addres to show how the app working
+# "http://www.google.com/404"
+# is not working web addres to show how the app working
 urls = [
     "https://github.com",
     "http://www.google.com/404",
