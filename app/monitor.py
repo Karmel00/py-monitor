@@ -7,6 +7,7 @@ email = "karmeljjj.2005@wp.pl"
 email_sender = "kamijjj.2005@gmail.com"
 email_password = "ztkk izti ocxe xdcr"
 
+
 # conecting with mail
 def send_email(subject, text):
     server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -16,6 +17,7 @@ def send_email(subject, text):
     server.sendmail(email_sender, email, messeage)
     server.quit
 
+
 logging.basicConfig(
     filename="web_log_status.log",
     level=logging.INFO,
@@ -24,9 +26,10 @@ logging.basicConfig(
     )
 
 
+# "http://www.google.com/404" is not working web addres to show how the app working
 urls = [
     "https://github.com",
-    "http://www.google.com/404", #not working web addres to show how the app working
+    "http://www.google.com/404",
     "https://example.com"
 ]
 
@@ -40,7 +43,7 @@ def web_status():
         except Exception as a:
             status = f"ERROR: {a}"
             send_email("Web status alert", status)
-            
+
         # save history of connection status to web_log_status.log
         logging.info(f"Adres: {url} - Status: {status}")
 
