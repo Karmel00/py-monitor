@@ -4,4 +4,8 @@ services:
     container_name: py-monitor-app
     volumes:
       - ./app:/app
-    command: python monitor.py
+    command: python -u monitor.py
+    deploy:
+      resources:
+        limits:
+          memory: 512M
