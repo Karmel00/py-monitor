@@ -3,9 +3,9 @@ import time
 import logging
 import smtplib
 
-email = "karmeljjj.2005@wp.pl"
-email_sender = "kamijjj.2005@gmail.com"
-email_password = "ztkk izti ocxe xdcr"
+email = ""  # email to get alerts
+email_sender = ""  # email of sender
+email_password = ""  # acess token 
 
 
 # conecting with mail
