@@ -5,7 +5,7 @@ import smtplib
 
 email = ""  # email to get alerts
 email_sender = ""  # email of sender
-email_password = ""  # acess token 
+email_password = ""  # access token
 
 
 # conecting with mail
