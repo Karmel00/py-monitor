@@ -42,7 +42,8 @@ def web_status():
             response = requests.get(url)
             status = "working" if response.status_code == 200 else "ERROR"
             if status == "ERROR":
-                send_email("Web status alert", f"Website with url:{url} is not working")
+                send_email("Web status alert",
+                            f"Website with url:{url} is not working")
         except Exception as a:
             status = f"ERROR: {a}"
             send_email("Web status alert", status)
