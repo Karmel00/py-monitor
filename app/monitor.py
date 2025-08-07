@@ -41,6 +41,8 @@ def web_status():
         try:
             response = requests.get(url)
             status = "working" if response.status_code == 200 else "ERROR"
+            if status == "ERROR":
+                send_email("Web status alert", f"Website with url:{url} is not working")
         except Exception as a:
             status = f"ERROR: {a}"
             send_email("Web status alert", status)
@@ -52,8 +54,8 @@ def web_status():
 def main():
     while True:
         web_status()
-        print("next status check in 2min")
-        time.sleep(20)
+        print("next status check in 5min")
+        time.sleep(300)
 
 
 if __name__ == "__main__":
