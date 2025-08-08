@@ -2,6 +2,7 @@ import requests
 import time
 import logging
 import smtplib
+import json
 
 email = ""  # email to get alerts
 email_sender = ""  # email of sender
@@ -28,11 +29,9 @@ logging.basicConfig(
 
 # "http://www.google.com/404"
 # is not working web addres to show how the app working
-urls = [
-    "https://github.com",
-    "http://www.google.com/404",
-    "https://example.com"
-]
+# urls read from urls.json
+with open("urls.json") as j:
+    urls = json.load(j)
 
 
 def web_status():
